@@ -28,6 +28,18 @@ app.get("/", (req, res) => {
 });
 
 // SERVER
-app.listen(3000, () => {
-  console.log("http://localhost:3000");
+//app.listen(3000, () => {
+//console.log("http://localhost:3000");
+//});
+
+// Server de verdade:
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
+
+app.use((req, res) => {
+  res.status(404).send("Página não encontrada!");
 });
